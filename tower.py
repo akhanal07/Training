@@ -6,44 +6,61 @@ class Tower:
         self.B = []
         self.C = []
     
-    def tower(self, item):
+    def tower(self, item):  # item = 3
         self.A.append(item)
-        time.sleep(1)
-        print("A =", self.A)
+        time.sleep(3)
+        print("A=", self.A)
         print("Items in Tower A\n")
 
-    def move(self, from_peg, to_peg, from_name, to_name):
-        if from_peg:
-            disk = from_peg.pop()
-            to_peg.append(disk)
-            time.sleep(1)
-            print(f"Move disk {disk} from {from_name} to {to_name}")
-            print("A =", self.A, "  B =", self.B, "  C =", self.C)
-        else:
-            print("No disk to move.")
-
     def pass1(self):
-        self.move(self.A, self.C, 'A', 'C')
+        self.temp = self.A.pop(2)  # A = [3,2]
+        self.C.append(self.temp)  # C = [1] => temp = 1
+        time.sleep(3)
+        print("A=", self.A, "   ", "B=", self.B, "   ", "C=", self.C)
+        print("Pass One Completed=================\n")
 
     def pass2(self):
-        self.move(self.A, self.B, 'A', 'B')
+        self.temp = self.A.pop(1)  # A = [3]
+        self.B.append(self.temp)  # B = [2] => temp = 2
+        time.sleep(3)
+        print("A=", self.A, "   ", "B=", self.B, "   ", "C=", self.C)
+        print("Pass Two Completed=================\n")
 
     def pass3(self):
-        self.move(self.C, self.B, 'C', 'B')
+        self.temp = self.C.pop(0)  # C = []
+        self.B.append(self.temp)  # B = [2,1]
+        time.sleep(3)
+        print("A=", self.A, "   ", "B=", self.B, "   ", "C=", self.C)
+        print("Pass Three Completed=================\n")
 
     def pass4(self):
-        self.move(self.A, self.C, 'A', 'C')
+        self.temp = self.A.pop(0)  # A = []
+        self.C.append(self.temp)  # C = [3]
+        time.sleep(3)
+        print("A=", self.A, "   ", "B=", self.B, "   ", "C=", self.C)
+        print("Pass Four Completed=================\n")
 
     def pass5(self):
-        self.move(self.B, self.A, 'B', 'A')
+        self.temp = self.B.pop(1)  # B = [1]
+        self.A.append(self.temp)  # A = [2]
+        time.sleep(3)
+        print("A=", self.A, "   ", "B=", self.B, "   ", "C=", self.C)
+        print("Pass Five Completed=================\n")
 
     def pass6(self):
-        self.move(self.B, self.C, 'B', 'C')
+        self.temp = self.B.pop(0)  # B = [ ]
+        self.C.append(self.temp)  # C = [3,2]
+        time.sleep(3)
+        print("A=", self.A, "   ", "B=", self.B, "   ", "C=", self.C)
+        print("Pass Six Completed=================\n")
 
     def pass7(self):
-        self.move(self.A, self.C, 'A', 'C')
+        self.temp = self.A.pop(0)  # A = [ ]
+        self.C.append(self.temp)  # C = [3,2,1]
+        time.sleep(3)
+        print("A=", self.A, "   ", "B=", self.B, "   ", "C=", self.C)
+        print("Pass Seven Completed=================\n")
 
-# Example usage:
 obj = Tower()
 obj.tower(3)
 obj.tower(2)
@@ -55,4 +72,3 @@ obj.pass4()
 obj.pass5()
 obj.pass6()
 obj.pass7()
-
