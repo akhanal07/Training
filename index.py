@@ -32,7 +32,9 @@ class Stack:
 
     def is_empty(self):
         return len(self.items) == 0
-    # Example usage:
+
+
+# Example usage:
 stack = Stack()
 
 while True:
