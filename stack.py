@@ -179,4 +179,8 @@ while True:
             print("Stack is not full.")
     else:
         print("Invalid choice")
+        
+        
+        
+
 
