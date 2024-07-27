@@ -1,10 +1,14 @@
 class Stack:
-    def __init__(self):
+    def __init__(self, max_size=10):
         self.items = []
+        self.max_size = max_size
 
     def push(self, item):
-        self.items.append(item)
-        print(f"Pushed {item} onto the stack.")
+        if not self.is_full():
+            self.items.append(item)
+            print(f"Pushed {item} onto the stack.")
+        else:
+            print("Stack is full. Cannot push.")
 
     def peek(self):
         if not self.is_empty():
@@ -33,6 +37,8 @@ class Stack:
     def is_empty(self):
         return len(self.items) == 0
 
+    def is_full(self):
+        return len(self.items) >= self.max_size
 
 # Example usage:
 stack = Stack()
@@ -45,6 +51,8 @@ while True:
     print("4. Delete")
     print("5. Exit")
     print("6. Display all the stack")
+    print("7. Check if stack is empty")
+    print("8. Check if stack is full")
 
     choice = input("Enter your choice: ")
 
@@ -52,7 +60,9 @@ while True:
         item = input("Enter item to push: ")
         stack.push(item)
     elif choice == '2':
-        print("Top of the stack:", stack.peek())
+        top_item = stack.peek()
+        if top_item is not None:
+            print("Top of the stack:", top_item)
     elif choice == '3':
         popped_item = stack.pop()
         if popped_item is not None:
@@ -64,5 +74,15 @@ while True:
         break
     elif choice == '6':
         stack.display_all()
+    elif choice == '7':
+        if stack.is_empty():
+            print("Stack is empty.")
+        else:
+            print("Stack is not empty.")
+    elif choice == '8':
+        if stack.is_full():
+            print("Stack is full.")
+        else:
+            print("Stack is not full.")
     else:
         print("Invalid choice")
