@@ -45,7 +45,7 @@ class LinkedList:
 
         if self.head.value == value:
             self.head = self.head.next
-            if self.head is None:  # If the list becomes empty
+            if self.head is None: 
                 self.tail = None
             self.length -= 1
             return
@@ -55,7 +55,7 @@ class LinkedList:
         while current_node is not None:
             if current_node.value == value:
                 prev_node.next = current_node.next
-                if current_node.next is None:  # If the deleted node was the tail
+                if current_node.next is None: 
                     self.tail = prev_node
                 self.length -= 1
                 return
@@ -127,3 +127,4 @@ def menu():
 
 if __name__ == "__main__":
     menu()
+6
