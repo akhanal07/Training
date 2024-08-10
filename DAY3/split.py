@@ -18,6 +18,6 @@ def split_into_palindromes(s):
 s = "aabaca"
 result = split_into_palindromes(s)
 if result:
-    print(f"The string can be split into three palindromic substrings: {result}")
+    print(f"{result}")
 else:
-    print("It's not possible to split the string into three palindromic substrings.")
+    print("It's not possible.")
