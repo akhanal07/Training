@@ -15,7 +15,7 @@ def split_into_palindromes(s):
     return None
 
 # Test the function
-s = "aabaca"
+s = "ababbcb"
 result = split_into_palindromes(s)
 if result:
     print(f"{result}")
